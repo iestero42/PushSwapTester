@@ -6,7 +6,7 @@
 #    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 11:48:04 by iestero-          #+#    #+#              #
-#    Updated: 2023/08/26 13:43:31 by iestero-         ###   ########.fr        #
+#    Updated: 2023/08/26 15:16:23 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,12 @@ RESET_ALL="\e[0m"
 SPACES="  "
 FORMAT_TEXT="%-50s"
 
+path=$(grep -rl "int\tmain" ./* | grep -v "_bonus")
+name=$(grep -rl "int\tmain" ./* | grep -v "_bonus" | xargs -I{} basename {})
 
-cp ./src/main/push_swap.c ./.tests/backup/push_swap.c
+cp $path ./.tests/backup/$name
 
-cp ./.tests/files_c/push_swap_leaks.c ./src/main/push_swap.c
+cp ./.tests/files_c/push_swap_leaks.c $path
 
 leaks_test__function() {
 		makeall=$(make all)
@@ -75,6 +77,6 @@ leaks_test__function "./push_swap 1 2 3 4 1"
 
 
 printf "\n\n"
-mv ./.tests/backup/push_swap.c ./src/main/push_swap.c
+mv ./.tests/backup/$name $path
 
 

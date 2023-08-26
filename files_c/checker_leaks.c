@@ -2,7 +2,7 @@
 
 void	leaks(void)
 {
-	system("leaks push_swap");
+	system("leaks checker");
 }
 
 /**

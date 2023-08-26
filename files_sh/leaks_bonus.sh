@@ -6,7 +6,7 @@
 #    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 12:38:07 by iestero-          #+#    #+#              #
-#    Updated: 2023/08/26 12:55:19 by iestero-         ###   ########.fr        #
+#    Updated: 2023/08/26 15:34:50 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,14 @@ RESET_COLOR_FONT="\e[39m"
 RESET_ALL="\e[0m"
 
 SPACES="  "
-FORMAT_TEXT="%-50s"
+FORMAT_TEXT="%-60s"
 
+path=$(find . -type f -name "*_bonus*" -exec grep -rl "int\tmain" {} \;)
+name=$(find . -type f -name "*_bonus*" -exec grep -rl "int\tmain" {} \; | xargs -I{} basename {})
 
-cp ./srcbonus/main/checker_bonus.c ./.tests/backup/checker_bonus.c
+cp $path ./.tests/backup/$name
 
-cp ./.tests/files_c/checker_leaks.c ./srcbonus/main/checker_bonus.c
+cp ./.tests/files_c/checker_leaks.c $path
 
 makeall=$(make re bonus)
 
@@ -72,4 +74,4 @@ leaks_test__function "./push_swap -2147483648 | ./checker -2147483648"
 
 
 printf "\n\n"
-mv ./.tests/backup/checker_bonus.c ./srcbonus/main/checker_bonus.c
+mv ./.tests/backup/$name $path
