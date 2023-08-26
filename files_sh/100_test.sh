@@ -6,7 +6,7 @@
 #    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/20 12:26:20 by marvin            #+#    #+#              #
-#    Updated: 2023/08/14 12:25:25 by iestero-         ###   ########.fr        #
+#    Updated: 2023/08/26 14:23:39 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ average_case=0
 number_tests=0
 total_ins=0
 
-checker=$checker_bonus
-
 simple_test__function() {
 		comand=$1
 		lines=$(./push_swap $1 | wc -l)
@@ -54,12 +52,15 @@ simple_test__function() {
 			printf "\t${RED_FONT}KO${RESET_ALL}"
 		fi
 		printf "\t${BLUE_FONT}INTRUCTIONS:${RESET_ALL}${YELLOW}\t$lines${RESET_ALL}\n"
+		sleep 0.5
 	}
 
 echo ""
-printf "*********************************************************************************\n"
-printf "***************************** ${BLUE_FONT}100_TEST PUSH_SWAP${RESET_ALL} *****************************\n"
-printf "*********************************************************************************\n\n\n"
+printf "**********************************************************************************\n"
+printf "*                                                                                *\n"
+printf "*                               ${BLUE_FONT}100_TEST PUSH_SWAP${RESET_ALL}                               *\n"
+printf "*                                                                                *\n"
+printf "**********************************************************************************\n\n\n"
 
 
 

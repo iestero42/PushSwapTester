@@ -6,7 +6,7 @@
 #    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 11:48:04 by iestero-          #+#    #+#              #
-#    Updated: 2023/08/26 12:46:35 by iestero-         ###   ########.fr        #
+#    Updated: 2023/08/26 13:43:31 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,10 @@ leaks_test__function() {
 		comand=$1
 		echo $comand >> ./.tests/logs/leaks.log
 		$comand >> ./.tests/logs/leaks.log 2>&1
+		$comand >> temp.log 2>&1
 		echo "--------------------------------------------------------------------" >> ./.tests/logs/leaks.log
-		result=$(cat ./.tests/logs/leaks.log | grep "0 leaks for 0 total leaked bytes.")
+		result=$(cat temp.log | grep "0 leaks for 0 total leaked bytes.")
+		rm temp.log
 		printf "${SPACES}${WHITE_FONT}${FORMAT_TEXT}${RESET_ALL}" "TEST: $comand: "
 		if [ -z "$result" ]; then
 			printf "\t${RED_FONT}KO${RESET_ALL}\n"
@@ -68,6 +70,8 @@ leaks_test__function "./push_swap \"    4   \""
 leaks_test__function "./push_swap 1 c 2"
 
 leaks_test__function "./push_swap -2147483648"
+
+leaks_test__function "./push_swap 1 2 3 4 1"
 
 
 printf "\n\n"

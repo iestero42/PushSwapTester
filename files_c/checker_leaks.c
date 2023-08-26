@@ -108,6 +108,7 @@ int	main(int argc, char **argv)
 	if (error_list(*stack_a) == ERROR_LIST)
 	{
 		free_list(stack_a);
+		free(stack_a);
 		return (error_message());
 	}
 	checker(stack_a);

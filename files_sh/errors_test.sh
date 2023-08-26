@@ -22,11 +22,14 @@ error_test__function() {
 		else
 			printf "${RED_FONT}KO${RESET_ALL}\n"
 		fi
+		sleep 0.5
 	}
 
 echo ""
 printf "*********************************************************************************\n"
-printf "***************************** ${BLUE_FONT}ERROR_TESTS PUSH_SWAP${RESET_ALL} *****************************\n"
+printf "*                                                                               *\n"
+printf "*                             ${BLUE_FONT}ERROR_TESTS PUSH_SWAP${RESET_ALL}                             *\n"
+printf "*                                                                               *\n"
 printf "*********************************************************************************\n\n\n"
 
 printf "${GREEN_FONT}EMPTY INPUT${RESET_ALL}\n\n"

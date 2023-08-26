@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    simple_test.sh                                     :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/19 20:38:01 by marvin            #+#    #+#              #
-#    Updated: 2023/03/29 16:22:42 by marvin           ###   ########.fr        #
+#    Updated: 2023/08/26 14:24:32 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,6 @@ checker_mac="./checkers/checker_mac"
 checker_linux="./checkers/checker_linux"
 checker_bonus="./checker"
 
-checker=$checker_bonus
-
 simple_test__function() {
 		comand=$1
 		lines=$(./push_swap $1 | wc -l)
@@ -40,11 +38,14 @@ simple_test__function() {
 			printf "\t${RED_FONT}KO${RESET_ALL}"
 		fi
 		printf "\t${BLUE_FONT}INTRUCTIONS:${RESET_ALL}${YELLOW}\t$lines${RESET_ALL}\n"
+        sleep 0.5
 	}
 
 echo ""
 printf "*********************************************************************************\n"
-printf "***************************** ${BLUE_FONT}SIMPLE_TESTS PUSH_SWAP${RESET_ALL} *****************************\n"
+printf "*                                                                               *\n"
+printf "*                            ${BLUE_FONT}SIMPLE_TESTS PUSH_SWAP${RESET_ALL}                             *\n"
+printf "*                                                                               *\n"
 printf "*********************************************************************************\n\n\n"
 
 

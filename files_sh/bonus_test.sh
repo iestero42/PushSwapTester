@@ -6,7 +6,7 @@
 #    By: iestero- <iestero-@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 15:08:25 by marvin            #+#    #+#              #
-#    Updated: 2023/08/14 12:43:28 by iestero-         ###   ########.fr        #
+#    Updated: 2023/08/26 14:24:06 by iestero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,14 @@ error_test__function() {
 		else
 			printf "${RED_FONT}KO${RESET_ALL}\n"
 		fi
+		sleep 1
 	}
 
 echo ""
 printf "*********************************************************************************\n"
-printf "***************************** ${BLUE_FONT}BONUS_TEST PUSH_SWAP${RESET_ALL} *****************************\n"
+printf "*                                                                               *\n"
+printf "*                              ${BLUE_FONT}BONUS_TEST PUSH_SWAP${RESET_ALL}                              *\n"
+printf "*                                                                               *\n"
 printf "*********************************************************************************\n\n\n"
 
 printf "${GREEN_FONT}EMPTY INPUT${RESET_ALL}\n\n"
