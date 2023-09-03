@@ -12,6 +12,14 @@
 
 #!/bin/bash
 
+#Terminar en 42
+#metodo mas general para todos
+#meter la funcion leaks en el fichero 
+	#sed -i '1s/^/void leaks(void) {\n\tsystem(\"leaks pipex\")\;\n}\n/' main.c
+#meter el atExit al main faltaria cambiar la partedel main
+	#sed -i '/^int\tmain()/{N;s/\n{/\n{\n\tatExit;/}' main.c
+
+ 
 YELLOW_BACK="\e[43m"
 BLUE_FONT="\e[1;34m"
 GREEN_FONT="\e[0;32m"
