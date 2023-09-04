@@ -31,12 +31,15 @@ RESET_ALL="\e[0m"
 SPACES="  "
 FORMAT_TEXT="%-50s"
 
+path_backup=$(find . -type d -name "backup" -exec dirname {} \;)
 path=$(grep -rl "int\tmain" ./* | grep -v "_bonus")
 name=$(grep -rl "int\tmain" ./* | grep -v "_bonus" | xargs -I{} basename {})
 
-cp $path ./.tests/backup/$name
+cp $path ./$path_backup/backup/$name
 
-cp ./.tests/files_c/push_swap_leaks.c $path
+sed -i '1s/^/void leaks(void) {\n\tsystem(\"leaks pipex\")\;\n}\n/' $path
+
+sed -i '/^int\tmain()/{N;s/\n{/\n{\n\tatExit;/}' $path
 
 leaks_test__function() {
 		makeall=$(make all)
@@ -85,6 +88,6 @@ leaks_test__function "./push_swap 1 2 3 4 1"
 
 
 printf "\n\n"
-mv ./.tests/backup/$name $path
+mv ./$path_backup/backup/$name $path
 
 
